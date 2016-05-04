@@ -18,9 +18,9 @@ $ git push resin master
 ```
 It should take a few minutes for the code to push. While you wait, lets enable device URLs so we can see the server outside of our local network. This option can be found in the `Actions` tab in your device dashboard.
 
-![Actions Tab](/img/enable-public-URLs.png)
-
 Once the device is loaded, you should be able to open the device URL and see the CBMS Studio home page. The username for the webpage is admin and the password is blank.
+
+![CBMS Studio Home Page](/img/cbms-home-page.png)
 
 Note: The grafana package takes a few minutes to initialize it's database. The grafana link will not work until the database has finished loading. The username for the webpage is admin and the password is blank. The username for grafana is admin and the password is admin.
 
