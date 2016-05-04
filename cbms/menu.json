@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "label": "Graphics",
+      "authenticate": true,
+      "class": "glyphicon glyphicon-cog glyphicon-white",
+      "roles": "admin",
+      "state": "gfx",
+      "href": "#/gfx/index",
+      "show": true
+    },
+    {
+      "label": "Grafana",
+      "authenticate": false,
+      "class": "glyphicon glyphicon-cog glyphicon-white",
+      "roles": "admin",
+      "state": "grafana",
+      "href": "/grafana",
+      "show": true
+    },
+    {
+      "label": "Settings",
+      "authenticate": true,
+      "class": "glyphicon glyphicon-cog glyphicon-white",
+      "roles": "admin",
+      "state": "sv",
+      "href": "#/sv/settings-general",
+      "show": false
+    },
+    {
+      "label": "Sedona",
+      "authenticate": true,
+      "class": "glyphicon glyphicon-tasks glyphicon-white",
+      "roles": "admin",
+      "state": "cv",
+      "href": "#/cv/sedona-app",
+      "show": true
+    }
+  ]
+}

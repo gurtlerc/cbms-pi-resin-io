@@ -1,0 +1,106 @@
+##
+# You should look at the following URL's in order to grasp a solid understanding
+# of Nginx configuration files in order to fully unleash the power of Nginx.
+# http://wiki.nginx.org/Pitfalls
+# http://wiki.nginx.org/QuickStart
+# http://wiki.nginx.org/Configuration
+#
+# Generally, you will want to move this file somewhere, and start with a clean
+# file but keep this around for reference. Or just disable in sites-enabled.
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+##
+
+server {
+	#listen   80; ## listen for ipv4; this line is default and implied
+	#listen   [::]:80 default_server ipv6only=on; ## listen for ipv6
+
+	root /var/cbms/web;
+	index index.html index.htm;
+
+	# Make site accessible from http://localhost/
+	server_name localhost;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ /index.html;
+		# Uncomment to enable naxsi on this location
+		# include /etc/nginx/naxsi.rules
+	}
+
+	location /doc/ {
+		alias /usr/share/doc/;
+		autoindex on;
+		allow 127.0.0.1;
+		allow ::1;
+		deny all;
+	}
+
+	location /grafana/ {
+		proxy_pass http://localhost:3000/;
+		proxy_set_header Host $host;
+	}
+
+	location /manifest/ {
+		proxy_pass http://localhost:8080;
+		proxy_set_header Host $host;
+	}
+
+	location /spy/ {
+		proxy_pass http://localhost:8080;
+		proxy_set_header Host $host;
+	}
+
+	location /obix/ {
+		proxy_pass http://localhost:8080;
+		proxy_set_header Host $host;
+	}
+
+	location /json/ {
+		proxy_pass http://localhost:8080;
+		proxy_set_header Host $host;
+	}
+
+	location /soxws {
+		proxy_pass http://localhost:8080;
+		proxy_http_version 1.1;
+		proxy_redirect off;	
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "upgrade"; 
+		proxy_set_header Host $host;
+	}
+
+	#error_page 404 /404.html;
+
+	# redirect server error pages to the static page /50x.html
+	#
+	#error_page 500 502 503 504 /50x.html;
+	#location = /50x.html {
+	#	root /usr/share/nginx/www;
+	#}
+}
+
+# HTTPS server
+#
+#server {
+#	listen 443;
+#	server_name localhost;
+#
+#	root html;
+#	index index.html index.htm;
+#
+#	ssl on;
+#	ssl_certificate cert.pem;
+#	ssl_certificate_key cert.key;
+#
+#	ssl_session_timeout 5m;
+#
+#	ssl_protocols SSLv3 TLSv1;
+#	ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+#	ssl_prefer_server_ciphers on;
+#
+#	location / {
+#		try_files $uri $uri/ =404;
+#	}
+#}
