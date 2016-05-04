@@ -25,7 +25,7 @@ Once the device is updated, you should see this in your logs:
 
 Then in your browser you should be able to open the device URL and see the CBMS Studio home page".
 
-[cbmsstidio]:http://cbmsstudio.com
+[cbmsstudio]:http://cbmsstudio.com
 [resin-link]:https://resin.io/
 [signup-page]:https://dashboard.resin.io/signup
 [gettingStarted-link]:http://docs.resin.io/#/pages/installing/gettingStarted.md
