@@ -1,8 +1,8 @@
 ## A BACnet and Modbus gateway for the Raspberry PI 
 
-This is a skeleton Express server project that works on [resin.io][resin-link] for the Raspberry PI.
+This is a skeleton server project that works on [resin.io][resin-link] for the Raspberry PI.
 
-This project installs [CBMS Studio][cbmsstudio] which provides communication to BACnet and Modbus systems and contains a web based graphical interface for displaying real time data. It also installs InfluxDB and Grafana for displaying historical information in a web based dashboard.
+This project installs [CBMS Studio][cbmsstudio] which provides communication to BACnet and Modbus systems and contains a web based graphical interface for displaying real time data. It also installs Nginx, InfluxDB and Grafana for displaying historical information in a web based dashboard.
  
 To get this project up and running, you will need to signup for a resin.io account [here][signup-page] and set up a device, have a look at the [Getting Started tutorial][gettingStarted-link]. Once you are set up with resin.io, you will need to clone this repo locally:
 ```
