@@ -20,10 +20,9 @@ It should take a few minutes for the code to push. While you wait, lets enable d
 
 ![Actions Tab](/img/enable-public-URLs.png)
 
-Once the device is updated, you should see this in your logs:
-![log output](/img/log-output.png)
+Once the device is loaded, you should be able to open the device URL and see the CBMS Studio home page. The username for the webpage is admin and the password is blank.
 
-Then in your browser you should be able to open the device URL and see the CBMS Studio home page".
+Note: The grafana package takes a few minutes to initialize it's database. The grafana link will not work until the database has finished loading. The username for the webpage is admin and the password is blank. The username for grafana is admin and the password is admin.
 
 [cbmsstudio]:http://cbmsstudio.com
 [resin-link]:https://resin.io/
