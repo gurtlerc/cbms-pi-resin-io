@@ -1,12 +1,12 @@
-## A Simple Server with Node.js Express
+## A BACnet and Modbus gateway for the Raspberry PI 
 
-This is a simple skeleton Express server project that works on any of the [resin.io][resin-link] supported devices.
+This is a skeleton Express server project that works on [resin.io][resin-link] for the Raspberry PI.
 
-This project simply serves up `"Hello World!"` on port `:80` of your resin.io device.
-
-To get this project up and running, you will need to signup for a resin.io account [here][signup-page] and set up a device, have a look at our [Getting Started tutorial][gettingStarted-link]. Once you are set up with resin.io, you will need to clone this repo locally:
+This project installs [CBMS Studio][cbmsstudio] which provides communication to BACnet and Modbus systems and contains a web based graphical interface for displaying real time data. It also installs InfluxDB and Grafana for displaying historical information in a web based dashboard.
+ 
+To get this project up and running, you will need to signup for a resin.io account [here][signup-page] and set up a device, have a look at the [Getting Started tutorial][gettingStarted-link]. Once you are set up with resin.io, you will need to clone this repo locally:
 ```
-$ git clone git@github.com:resin-projects/simple-server-node.git
+$ git clone https://github.com/gurtlerc/cbms-pi-resin-io.git 
 ```
 Then add your resin.io application's remote repository to your local repository:
 ```
@@ -23,9 +23,9 @@ It should take a few minutes for the code to push. While you wait, lets enable d
 Once the device is updated, you should see this in your logs:
 ![log output](/img/log-output.png)
 
-Then in your browser you should be able to open the device URL and see the message "Hello World!".
+Then in your browser you should be able to open the device URL and see the CBMS Studio home page".
 
-
+[cbmsstidio]:http://cbmsstudio.com
 [resin-link]:https://resin.io/
 [signup-page]:https://dashboard.resin.io/signup
 [gettingStarted-link]:http://docs.resin.io/#/pages/installing/gettingStarted.md
