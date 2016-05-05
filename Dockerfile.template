@@ -22,17 +22,25 @@ RUN JOBS=MAX npm install --production --unsafe-perm && npm cache clean && rm -rf
 # This will copy all files in our root to the working  directory in the container
 COPY . ./
 
-# Install cbmsstudio from the debian package
-RUN dpkg -i cbms/cbmsstudio_1.3.6.1125_armhf.deb
-RUN dpkg -i influxdb/influxdb_0.10.0+dfsg1-1_armhf.deb
-RUN dpkg -i grafana/grafana_2.6.0_armhf.deb
-
-ADD start.sh /start.sh
+# Add the nginx configuration file
 ADD nginx/default /etc/nginx/sites-available/default 
-ADD grafana/grafana.ini /etc/grafana/grafana.ini
+
+# Install cbmsstudio
+RUN dpkg -i cbms/cbmsstudio_1.3.6.1125_armhf.deb
+RUN rm /var/cbms/.serial
+RUN rm /var/cbms/license.dat
 ADD cbms/menu.json /var/cbms/web/nav/menu.json
 
+# Install Influxdb
+RUN dpkg -i influxdb/influxdb_0.10.0+dfsg1-1_armhf.deb
+
+# Install grafana
+RUN dpkg -i grafana/grafana_2.6.0_armhf.deb
+ADD grafana/grafana.ini /etc/grafana/grafana.ini
 RUN systemctl enable grafana-server
+
+# Add the start script
+ADD start.sh /start.sh
 
 # Enable systemd init system in container
 ENV INITSYSTEM=on
