@@ -27,8 +27,8 @@ ADD nginx/default /etc/nginx/sites-available/default
 
 # Install cbmsstudio
 RUN dpkg -i cbms/cbmsstudio_1.3.6.1125_armhf.deb
-RUN rm /var/cbms/.serial
-RUN rm /var/cbms/license.dat
+RUN rm  -rf /var/cbms/.serial
+RUN rm  -rf /var/cbms/license.dat
 ADD cbms/menu.json /var/cbms/web/nav/menu.json
 
 # Install Influxdb
