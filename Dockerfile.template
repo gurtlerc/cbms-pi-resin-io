@@ -40,7 +40,7 @@ RUN systemctl enable grafana-server
 # ENV INITSYSTEM=on
 
 # Create configuration for supervisord
-RUN echo_supervisord_conf > /usr/local/etc/supervisord.conf && \
+RUN echo supervisord.conf > /usr/local/etc/supervisord.conf && \
     echo "[include]" >> /usr/local/etc/supervisord.conf && \
     echo "files = /usr/src/app/supervisor/*.conf" >> /usr/local/etc/supervisord.conf
 

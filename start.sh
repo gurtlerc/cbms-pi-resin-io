@@ -18,10 +18,8 @@ fi
 # Make and chown cbms data directories
 if [ ! -d /data/cbms ]
 then
-	service svm stop
 	cp -R /var/cbms/ /data/cbms/
 	chown -R cbms:cbms /data/cbms
-	service svm start
 fi
 
 # Run the application with supervisor
