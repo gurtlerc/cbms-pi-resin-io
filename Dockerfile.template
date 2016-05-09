@@ -6,7 +6,7 @@ FROM resin/%%RESIN_MACHINE_NAME%%-debian:latest
 # use apt-get if you need to install dependencies,
 # for instance if you need ALSA sound utils, just uncomment the lines below.
 RUN apt-get update && apt-get install -yq \
-    alsa-utils libasound2-dev nginx adduser libfontconfig vsftpd && \
+    alsa-utils libasound2-dev nginx adduser libfontconfig && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Defines our working directory in container
