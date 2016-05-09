@@ -11,15 +11,17 @@ fi
 if [ ! -d /data/grafana ]
 then
         mkdir /data/grafana
-        chown grafana:grafana /data/grafana
-        mv /usr/src/app/grafana/grafana.db /data/grafana/grafana.db
-        chown grafana:grafana /data/grafana/grafana.db
+        cp /usr/src/app/grafana/grafana.db /data/grafana/grafana.db
+        chown -R grafana:grafana /data/grafana/grafana.db
 fi
 
 # Make and chown cbms data directories
 if [ ! -d /data/cbms ]
 then
-	mv /var/cbms /data/cbms
+	service svm stop
+	cp -R /var/cbms/ /data/cbms/
+	chown -R cbms:cbms /data/cbms
+	service svm start
 fi
 
 echo "CBMS Studio Started"
