@@ -4,7 +4,7 @@
 if [ ! -f /data/influxdb ]
 then
 	mkdir /data/influxdb 
-	chown influxdb:influxdb influxdb
+	chown influxdb:influxdb /data/influxdb
 fi
 
 # Make and chown grafana data directories
