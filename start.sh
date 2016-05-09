@@ -22,7 +22,4 @@ then
 	chown -R cbms:cbms /data/cbms
 fi
 
-# Run the application with supervisor
-supervisord -n -c /usr/local/etc/supervisord.conf
-
 echo "CBMS Studio Started"
