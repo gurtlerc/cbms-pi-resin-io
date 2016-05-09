@@ -11,14 +11,14 @@ fi
 if [ ! -d /data/grafana ]
 then
         mkdir /data/grafana
-        cp /usr/src/app/grafana/grafana.db /data/grafana/grafana.db
+        mv /usr/src/app/grafana/grafana.db /data/grafana/grafana.db
         chown -R grafana:grafana /data/grafana
 fi
 
 # Make and chown cbms data directories
 if [ ! -d /data/cbms ]
 then
-	cp -R /var/cbms/ /data/cbms/
+	mv /var/cbms /data/cbms
 	chown -R cbms:cbms /data/cbms
 fi
 
