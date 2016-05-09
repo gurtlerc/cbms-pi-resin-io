@@ -1,25 +1,23 @@
 #!/bin/bash
 
-GRAFANA_DIR /data/grafana
-INFUXDB_DIR /data/influxdb
-CBMS_DIR /data/cbms
-
 # Make and chown influxdb data directories
-if [ ! -f $INFLUXDB_DIR ]
+if [ ! -f /data/influxdb ]
 then
-	mkdir $INFLUXDB_DIR
-	cke and chown grafana data directories
-if [ ! -f $GRAFANA_DIR ]
-then
-        mkdir $GRAFANA_DIR
-        chown grafana:grafana $GRAFANA_DIR
-        cp
+	mkdir /data/influxdb 
+	chown influxdb:influxdb influxdb
 fi
-hown influxdb:influxdb $INFLUXDB_DIR
+
+# Make and chown grafana data directories
+if [ ! -f /data/grafana ]
+then
+        mkdir /data/grafana
+        chown grafana:grafana /data/grafana
+        mv /usr/src/app/grafana/grafana.db /data/grafana/grafana.db
+        chown grafana:grafana /data/grafana/grafana.db
 fi
 
 # Make and chown cbms data directories
-if [ ! -f $CBMS_DIR ]
+if [ ! -f /data/cbms ]
 then
 	mv /var/cbms /data/cbms
 fi
