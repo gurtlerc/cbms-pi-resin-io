@@ -37,7 +37,12 @@ ADD grafana/grafana.ini /etc/grafana/grafana.ini
 RUN systemctl enable grafana-server
 
 # Enable systemd init system in container
-ENV INITSYSTEM=on
+# ENV INITSYSTEM=on
+
+# Create configuration for supervisord
+RUN echo_supervisord_conf > /usr/local/etc/supervisord.conf && \
+    echo "[include]" >> /usr/local/etc/supervisord.conf && \
+    echo "files = /usr/src/app/supervisor/*.conf" >> /usr/local/etc/supervisord.conf
 
 CMD ["bash", "/usr/src/app/start.sh"]
 

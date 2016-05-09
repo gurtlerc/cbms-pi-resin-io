@@ -24,4 +24,7 @@ then
 	service svm start
 fi
 
+# Run the application with supervisor
+supervisord -n -c /usr/local/etc/supervisord.conf
+
 echo "CBMS Studio Started"
