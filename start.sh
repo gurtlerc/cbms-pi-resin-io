@@ -4,7 +4,7 @@
 if [ ! -d /data/influxdb ]
 then
 	mkdir /data/influxdb 
-	chown influxdb:influxdb /data/influxdb
+	chown -R influxdb:influxdb /data/influxdb
 fi
 
 # Make and chown grafana data directories
@@ -12,7 +12,7 @@ if [ ! -d /data/grafana ]
 then
         mkdir /data/grafana
         cp /usr/src/app/grafana/grafana.db /data/grafana/grafana.db
-        chown -R grafana:grafana /data/grafana/grafana.db
+        chown -R grafana:grafana /data/grafana
 fi
 
 # Make and chown cbms data directories
