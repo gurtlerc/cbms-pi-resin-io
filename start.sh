@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Make and chown influxdb data directories
-if [ ! -f /data/influxdb ]
+if [ ! -d /data/influxdb ]
 then
 	mkdir /data/influxdb 
 	chown influxdb:influxdb /data/influxdb
 fi
 
 # Make and chown grafana data directories
-if [ ! -f /data/grafana ]
+if [ ! -d /data/grafana ]
 then
         mkdir /data/grafana
         chown grafana:grafana /data/grafana
@@ -17,7 +17,7 @@ then
 fi
 
 # Make and chown cbms data directories
-if [ ! -f /data/cbms ]
+if [ ! -d /data/cbms ]
 then
 	mv /var/cbms /data/cbms
 fi
