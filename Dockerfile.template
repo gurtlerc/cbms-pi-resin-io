@@ -23,9 +23,12 @@ RUN dpkg -i cbms/cbmsstudio_1.3.6.1125_armhf.deb
 RUN rm -rf /var/cbms/.serial
 RUN rm -rf /var/cbms/license.dat
 RUN rm -rf /var/cbms/features.dat
-ADD cbms/menu.json /var/cbms/web/nav/menu.json
+ADD cbms/menu.json /var/cbms/web/nav/menu.json 
 ADD cbms/config.ini /etc/cbms/config.ini
 ADD cbms/app.sab /var/cbms/app.sab
+ADD cbms/app.sab /var/cbms/default/app.sab
+ADD cbms/kits.scode /var/cbms/kits.scode
+ADD cbms/kits.scode /var/cbms/default/kits.scode
 
 # Install Influxdb
 RUN dpkg -i influxdb/influxdb_0.10.0+dfsg1-1_armhf.deb
