@@ -22,3 +22,4 @@ then
 	mv /var/cbms /data/cbms
 fi
 
+echo "CBMS Studio Started"
