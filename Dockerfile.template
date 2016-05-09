@@ -31,6 +31,7 @@ RUN rm -rf /var/cbms/.serial
 RUN rm -rf /var/cbms/license.dat
 RUN rm -rf /var/cbms/features.dat
 ADD cbms/menu.json /var/cbms/web/nav/menu.json
+ADD cbms/config.ini /etc/cbms/config.ini
 
 # Install Influxdb
 RUN dpkg -i influxdb/influxdb_0.10.0+dfsg1-1_armhf.deb
