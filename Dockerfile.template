@@ -19,7 +19,7 @@ COPY . ./
 ADD nginx/default /etc/nginx/sites-available/default 
 
 # Install cbmsstudio
-RUN dpkg -i cbms/cbmsstudio_1.3.7.1161_armhf.deb
+RUN dpkg -i cbms/cbmsstudio_1.3.7.1175_armhf.deb
 RUN rm -rf /var/cbms/.serial
 RUN rm -rf /var/cbms/license.dat
 RUN rm -rf /var/cbms/features.dat
